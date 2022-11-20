@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+    
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: file-service
+          uri: lb://file-service
+          predicates:
+            - Path=/file/**
+        - id: extrahours-service
+          uri: lb://extrahours-service
+          predicates:
+            - Path=/extrahours/** 
+        - id: justification-service
+          uri: lb://justification-service
+          predicates:
+            - Path=/justification/**
+        - id: report-service
+          uri: lb://report-service
+          predicates:
+            - Path=/report/**
+        - id: form-service
+          uri: lb://form-service
+          predicates:
+            - Path=/form/**
