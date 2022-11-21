@@ -37,3 +37,12 @@ spring:
           uri: lb://form-service
           predicates:
             - Path=/form/**
+      globalcors:
+        cors-configurations:
+          '[/*]':
+            allowedOrigins: ""
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+
