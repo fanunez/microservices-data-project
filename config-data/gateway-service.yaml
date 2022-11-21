@@ -38,11 +38,9 @@ spring:
           predicates:
             - Path=/form/**
       globalcors:
-        add-to-simple-url-handler-mapping: true
-        cors-configurations:
-          '[/**]': 
-            allowedOrigins: "*" 
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
             allowedHeaders: "*"
             allowedMethods: "*"
-            allowCredentials: true
 
